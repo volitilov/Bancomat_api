@@ -7,5 +7,5 @@ from django.conf.urls import include, url
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 urlpatterns = [
-    url(r'^api/', include('api.urls'))
+    url(r'^api/v1/', include('api.urls')),
 ]
