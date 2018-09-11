@@ -1,5 +1,10 @@
 # Bancomat_api
 
+[![Foo](https://travis-ci.org/volitilov/Bancomat_api.svg?branch=master)](https://travis-ci.org/volitilov/Bancomat_api)
+
+----------------
+
+
 API для банкомата. Тестовое задание в smartup school на backend.
 
 ### API
