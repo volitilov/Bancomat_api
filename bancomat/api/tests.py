@@ -2,8 +2,11 @@
 
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+from django.urls import reverse
+from rest_framework import status
 from django.test import TestCase
 from .views import Bill, Bill_serializer
+from rest_framework.test import APITestCase, APIClient
 
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -44,3 +47,9 @@ class BillSerializer_tests(TestCase):
         self.assertTrue(serializer.data['count'] == 500)
 
 
+
+class appAPI_tests(APITestCase):
+    def test_statusBank(self):
+        response = self.client.get('/api/bank/status')
+        self.assertEqual(response.data, {})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
