@@ -7,7 +7,7 @@ from .models import Bill
 
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-class Bill_serializer(serializers.Serializer):
+class Bill_serializer(serializers.ModelSerializer):
     '''Сериализация банкнот'''
     class Meta:
         model = Bill

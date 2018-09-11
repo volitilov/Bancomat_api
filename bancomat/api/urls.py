@@ -3,14 +3,12 @@
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 from django.conf.urls import url
-from .views import Bancomat
+from .views import *
 
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-banc = Bancomat()
-
 urlpatterns = [
-    url(r'^banc/set$', banc.set),
-    url(r'^withdraw$', banc.get),
-    url(r'^bank/status$', banc.status)
+    url(r'^banc/set$', add_cash),
+    url(r'^banc/withdraw$', withdraw_cash),
+    url(r'^banc/status$', status)
 ]

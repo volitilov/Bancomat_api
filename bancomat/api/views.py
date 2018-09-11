@@ -3,21 +3,31 @@
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 from rest_framework import status
-from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import permissions
 
 from .models import Bill
 from .serializers import Bill_serializer
+from django.http import Http404
 
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-class Bancomat(APIView):
-    '''api банкомата'''
+@api_view(['GET'])
+def withdraw_cash(request): pass
 
-    def get(self, request): pass
 
-    def set(self, request): pass
+@api_view(['POST'])
+def add_cash(request): pass
 
-    def status(self, request): pass
+
+@api_view(['GET'])
+def status(request):
+    if request.method == 'GET':
+        bills = Bill.objects.all()
+        serializer = Bill_serializer(bills, many=True)
+        data = {}
+        for i in serializer.data:
+            bill_with_count = list(i.values())
+            data.update({bill_with_count[0]: bill_with_count[1]})
+        return Response(data=data)
