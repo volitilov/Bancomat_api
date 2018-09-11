@@ -1,6 +1,6 @@
 # Bancomat_api
 
-API для банкомата для. Тестовое задание в smartup school на backend.
+API для банкомата. Тестовое задание в smartup school на backend.
 
 ### API
 
