@@ -11,9 +11,13 @@ class Bill(models.Model):
     class Meta:
         db_table = 'bill'
     
-    bill_name = models.CharField(max_length=50, unique=True, verbose_name='название')
-    bill_count = models.IntegerField(default=0, verbose_name='колличество')
+    name = models.CharField(max_length=5, unique=True, verbose_name='название')
+    count = models.PositiveIntegerField(default=0, verbose_name='колличество банкнот')
+    balans = models.PositiveIntegerField(default=0, verbose_name='баланс')
+
+    def set_balans(self):
+        self.balans = int(self.name) * self.count
 
     def __str__(self):
-        return self.bill_name
+        return self.name
     

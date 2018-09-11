@@ -11,4 +11,4 @@ class Bill_serializer(serializers.ModelSerializer):
     '''Сериализация банкнот'''
     class Meta:
         model = Bill
-        fields = ('bill_name', 'bill_count')
+        fields = ('name', 'count')
