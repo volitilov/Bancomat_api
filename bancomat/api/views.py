@@ -18,7 +18,16 @@ def withdraw_cash(request): pass
 
 
 @api_view(['POST'])
-def add_cash(request): pass
+def add_cash(request):
+    if request.method == 'POST':
+        for i in request.data:
+            try:
+                bill = Bill.objects.get(bill_name=i)
+                bill.bill_count += int(request.data[i])
+            except Bill.DoesNotExist:
+                bill = Bill(bill_name=i, bill_count=request.data[i])
+            bill.save()
+        return Response(request.data)
 
 
 @api_view(['GET'])
