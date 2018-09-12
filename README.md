@@ -41,6 +41,12 @@ DATABASE_HOST='host'
 DATABASE_PORT='port'
 ```
 
+В настройках конфигурации приложения включите окружение:
+
+```python
+PRODUCTION = True
+```
+
 Запуск приложения
 ```bash
 $ ./manage.py makemigrations
