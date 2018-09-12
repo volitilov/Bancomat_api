@@ -18,18 +18,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default=os.urandom(16))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+PRODUCTION = False
 
 ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 INSTALLED_APPS = [
-    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    # 'django.contrib.sessions',
-    # 'django.contrib.messages',
-    # 'django.contrib.staticfiles',
 
     'api',
     'rest_framework',
@@ -39,13 +36,11 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    # 'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'bancomat.urls'
+ROOT_URLCONF = 'configs.urls'
 
 TEMPLATES = [
     {
@@ -63,11 +58,11 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'bancomat.wsgi.application'
+WSGI_APPLICATION = 'configs.wsgi.application'
 
 
 # Database
-if DEBUG:
+if PRODUCTION:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -82,13 +77,12 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'NAME': os.path.join(BASE_DIR, 'test_db.sqlite3'),
             'TEST': {
-                'NAME': 'test_bancomat'
+                'NAME': 'test_db'
             },
         }
     }
-    
 
 
 # Password validation
