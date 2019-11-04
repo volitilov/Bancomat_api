@@ -38,7 +38,7 @@ setup(
     license='MIT', 
     packages=find_packages(), 
     install_requires=[
-        'Django==2.1.1', 
+        'Django==2.1.11', 
         'djangorestframework==3.8.2',
         'djangorestframework-jsonapi==2.5.0',
         'python-dotenv==0.9.1',
