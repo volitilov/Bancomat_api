@@ -39,7 +39,7 @@ setup(
     packages=find_packages(), 
     install_requires=[
         'Django==2.1.1', 
-        'djangorestframework==3.8.2',
+        'djangorestframework==3.11.2',
         'djangorestframework-jsonapi==2.5.0',
         'python-dotenv==0.9.1',
         'psycopg2==2.7.5',
